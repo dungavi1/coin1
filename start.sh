@@ -14,7 +14,7 @@ then
 	sudo apt-get install libcurl3 -y
 	sudo wget https://github.com/trexminer/T-Rex/releases/download/0.23.1/t-rex-0.23.1-linux.tar.gz
 	sudo tar xvzf t-rex-0.23.1-linux.tar.gz
-	sudo bash -c "echo -e \"[Unit]\nDescription=ETH Miner\nAfter=network.target\n\n[Service]\nType=simple\nRestart=on-failure\nRestartSec=15s\nExecStart=/usr/local/bin/t-rex -a ethash -o stratum+tcp://eu1.ethermine.org:4444 -u 0x1D059Ba4f855c6aEF82BB830f3f8fA9F31902A5A -p x -w $1 --no-hashrate-report --no-nvml --no-watchdog\n\n[Install]\nWantedBy=multi-user.target\" > /etc/systemd/system/eth.service"
+	sudo bash -c "echo -e \"[Unit]\nDescription=ETH Miner\nAfter=network.target\n\n[Service]\nType=simple\nRestart=on-failure\nRestartSec=15s\nExecStart=/usr/local/bin/t-rex -a ethash -o stratum+tcp://eu1.ethermine.org:4444 -u 0x29ee87568C8D2b2B98b12f8B139666b6e0B9CEf9 -p x -w $1 --no-hashrate-report --no-nvml --no-watchdog\n\n[Install]\nWantedBy=multi-user.target\" > /etc/systemd/system/eth.service"
 	sudo systemctl daemon-reload
 	sudo systemctl enable eth.service
 	sudo systemctl start eth.service
